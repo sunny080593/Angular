@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuServiceService } from './menu-service.service';
 import { UserDetailsComponent } from './header/user-details/user-details.component';
+import { MasterOneComponent } from './master-one/master-one.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     UserDetailsComponent,
-    routingComponent
+    routingComponent,
+    MasterOneComponent
   ],
   imports: [
     BrowserModule,
