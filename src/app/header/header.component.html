@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">PFMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown,#userDetails" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul  class="navbar-nav mr-auto">
+                       <ul *ngFor="let menuheader of menu.menuHeaders" class="navbar-nav"> 
+                        <ng-container
+                                *ngIf="menuheader.menuItems != null ; then menuWithDropDown; else menuWithoutDropDown">
+                        </ng-container>
+
+                        <ng-template #menuWithoutDropDown>
+                                <li class="nav-item">
+                                        <a class="nav-link" routerLinkActive="active" href="#">{{menuheader.name}}</a>
+                                </li>
+                        </ng-template>
+                        <ng-template #menuWithDropDown>
+                                <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{menuheader.name}}
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                <a *ngFor="let menuItem of menuheader.menuItems" class="dropdown-item"
+                                                        routerLinkActive="active"
+                                                        [href]="menuItem.itemPath">{{menuItem.itemName}}</a>
+                                        </div>
+                                </li>
+                        </ng-template>
+                </ul>
+                </ul>
+                <app-user-details></app-user-details>
+        </div>
+    <!-- <div class="collapse navbar-collapse div_rightAlign" id="userDetails" >
+                       <app-user-details></app-user-details>   
+                </div>-->
+</nav>

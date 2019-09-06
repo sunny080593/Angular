@@ -1,0 +1,4 @@
+.div_rightAlign{
+    display: flex;
+    justify-content: flex-end
+}
